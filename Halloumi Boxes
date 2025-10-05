@@ -1,0 +1,31 @@
+import java.util.*;
+
+public class HalloumiBoxes {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		int t = scanner.nextInt(); // Read the number of test cases
+		while (t-- > 0) {
+			long n = scanner.nextLong(); // Read the number of boxes
+			long k = scanner.nextLong(); // Read the maximum length of subarray that can be reversed
+			long[] a = new long[(int) n]; // Array to store the numbers on the boxes
+			for (int i = 0; i < n; i++) {
+				a[i] = scanner.nextLong(); // Read each number into the array
+			}
+
+			// Create a copy of the original array
+			long[] copy_a = Arrays.copyOf(a, a.length);
+			Arrays.sort(copy_a); // Sort the copied array in non-decreasing order
+
+			// Check if the original array is already sorted or if k > 1
+			if (Arrays.equals(copy_a, a) || k > 1) {
+				System.out.println("YES"); // If true, print "YES"
+			} else {
+				System.out.println("NO"); // Otherwise, print "NO"
+			}
+		}
+		scanner.close();
+	}
+}
+
+// Time Complexity (TC): O(nlogn) = O(100log2(100)) = 100*7 = 700
+// Space Complexity (SC): O(n)
